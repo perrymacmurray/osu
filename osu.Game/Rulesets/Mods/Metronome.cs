@@ -39,7 +39,7 @@ namespace osu.Game.Rulesets.Mods
             if (BeatSyncClock.CurrentTime < firstHitTime - timingPoint.BeatLength * timeSignature)
                 return;
 
-            sample.Frequency.Value = beatIndex % timeSignature == 0 ? 1 : 0.5f;
+            sample.Frequency.Value = beatIndex % (timeSignature * Divisor) == 0 ? 1 : 0.5f;
             sample.Play();
         }
 
